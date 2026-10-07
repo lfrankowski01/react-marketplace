@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductList from "../components/ProductList";
+import { Link } from "react-router-dom";
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -25,6 +26,10 @@ function Products() {
     }, []);
     return (
         <>
+            <Link to="/">Home</Link>
+            <Link to="/products">Products</Link>
+            <Link to="/cart">Your Cart</Link>
+
             {loading && <h1>Loading products...</h1>}
 
             {error && <h1>{error}</h1>}

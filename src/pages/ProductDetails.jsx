@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 function ProductDetails() {
+    const { dispatch } = useContext(CartContext);
     const [product, setProduct] = useState(null);
     const {id} = useParams();
     const [loading, setLoading] = useState(false);
@@ -29,6 +32,13 @@ function ProductDetails() {
         getProduct();
     }, [id]);
 
+    function addToCart() {
+        dispatch({
+            type: "ADD_TO_CART",
+            product: product
+        });
+    }
+
     return (
         <>
         <Link to="/">Back Home</Link>
@@ -45,6 +55,7 @@ function ProductDetails() {
                 <p>{product.price}</p>
                 <p>{product.description}</p>
                 <p>{product.category}</p>
+                <button onClick={addToCart}>Add to Cart</button>
             </div>
         </div>
         )}

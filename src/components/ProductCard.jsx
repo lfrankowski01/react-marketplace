@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
+
 function ProductCard({product}) {
     return (
-        <div>
+        <>
+        <Link to={`/products/${product.id}`}>
             <h2>{product.title}</h2>
             <p>{product.price}</p>
             <img src={product.image} alt={product.title}></img>
-        </div>
+        </Link>
+        </>
     );
 }
 export default ProductCard;

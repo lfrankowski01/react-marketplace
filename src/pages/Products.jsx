@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductList from "../components/ProductList";
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -29,9 +29,7 @@ function Products() {
 
             {error && <h1>{error}</h1>}
 
-            {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-            ))}
+            <ProductList products={products} />
         </>
     );
 }

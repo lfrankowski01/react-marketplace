@@ -6,6 +6,13 @@ function Products() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+    
+    const filteredProducts = 
+    products.filter(product => {
+        const result = product.title.toLowerCase().includes(searchTerm.toLowerCase());
+        return result;
+    });
 
     useEffect(() => {
         async function getProducts() {
@@ -24,13 +31,16 @@ function Products() {
         }
         getProducts();
     }, []);
+
     return (
         <>
             {loading && <h1>Loading products...</h1>}
 
             {error && <h1>{error}</h1>}
 
-            <ProductList products={products} />
+            <input type="text" placeholder="Search product..." value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}/>
+
+            <ProductList products={filteredProducts} />
         </>
     );
 }

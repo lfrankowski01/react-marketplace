@@ -30,11 +30,8 @@ A responsive marketplace application built with React, allowing users to browse 
 - localStorage
 - Git and GitHub
 
-<box border radius="lg" padding={3} gap={2}>
-<text color="success" weight="medium" size="sm">Correct Markdown structure</text>
-<text preserveWhitespace>{`
 ## Project Structure
-\`\`\`text
+
 src/
 ├── components/
 │   ├── Navbar.jsx
@@ -51,8 +48,7 @@ src/
 ├── App.jsx
 ├── App.css
 └── main.jsx
-\`\`\`
-`}</text></box>
+
 ## Getting Started
 
 Prerequisites

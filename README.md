@@ -32,7 +32,7 @@ A responsive marketplace application built with React, allowing users to browse 
 
 <box border radius="lg" padding={3} gap={2}>
 <text color="success" weight="medium" size="sm">Correct Markdown structure</text>
-<text preserveWhitespace>{'
+<text preserveWhitespace>{`
 ## Project Structure
 \`\`\`text
 src/
@@ -52,7 +52,7 @@ src/
 ├── App.css
 └── main.jsx
 \`\`\`
-'}</text></box>
+`}</text></box>
 ## Getting Started
 
 Prerequisites

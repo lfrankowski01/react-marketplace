@@ -16,26 +16,30 @@ function Home() {
 
     return (
         <>
-            <section>
+            <section className="hero">
                 <h1>Welcome to Our Marketplace</h1>
                 <p>Discover great products at great prices.</p>
-                <Link to="/products">Shop Now</Link>
+                <Link to="/products" className="shop-button">Shop Now</Link>
             </section>
 
-            <section>
+            <section className="featured-section">
                 <h2>Featured Products</h2>
-                {products.slice(0,4).map(product => (
-                    <ProductCard product={product} key={product.id} />
-                ))}
+                <div className="featured-products">
+                    {products.slice(0,4).map(product => (
+                        <ProductCard product={product} key={product.id} />
+                    ))}
+                </div>
             </section>
 
-            <section>
+            <section className="categories-section">
                 <h2>Shop by Category</h2>
-
-                <Link to="/products?category=electronics">Electronics</Link>
-                <Link to="/products?category=jewelery">Jewelery</Link>
-                <Link to="/products?category=men's clothing">Men's Clothing</Link>
-                <Link to="/products?category=women's clothing">Women's Clothing</Link>
+                
+                <div className="category-list">
+                    <Link to="/products?category=electronics" className="category-card">Electronics</Link>
+                    <Link to="/products?category=jewelery" className="category-card">Jewelery</Link>
+                    <Link to="/products?category=men's clothing" className="category-card">Men's Clothing</Link>
+                    <Link to="/products?category=women's clothing" className="category-card">Women's Clothing</Link>
+                </div>
             </section>
         </>
     );

@@ -50,28 +50,45 @@ function Products() {
     }, []);
 
     return (
-        <>
+        <main className="products-page">
+
+            <header className="products-header">
+                <h1>Our Products</h1>
+                <p>Find something you'll love.</p>
+            </header>
+
             {loading && <h1>Loading products...</h1>}
 
             {error && <h1>{error}</h1>}
 
-            <select value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)}>
-                <option value="all">All</option>
-                {categories.map(category => (
-                    <option key={category}>{category}</option>
-                ))}
-            </select>
+            <section className="products-controls">
+                <div className="control-group">
+                    <label htmlFor="category">Category</label>
+                    <select id="category" value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)}>
+                        <option value="all">All</option>
+                        {categories.map(category => (
+                            <option key={category}>{category}</option>
+                        ))}
+                    </select>
+                </div>
 
-            <input type="text" placeholder="Search product..." value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}/>
+                <div className="control-group">
+                    <label htmlFor="search">Search products</label>
+                    <input id="search" type="text" placeholder="e.g. jacket" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}/>
+                </div>
 
-            <select value={sortOrder} onChange={(event) => setSortOrder(event.target.value)}>
-                <option value="default">Default order</option>
-                <option value="low-high">Price: low to high</option>
-                <option value="high-low">Price: high to low</option>
-            </select>
+                <div className="control-group">
+                    <label htmlFor="sort">Sort by Price</label>
+                    <select id="sort" value={sortOrder} onChange={(event) => setSortOrder(event.target.value)}>
+                        <option value="default">Default order</option>
+                        <option value="low-high">Price: low to high</option>
+                        <option value="high-low">Price: high to low</option>
+                    </select>
+                </div>
+            </section>
 
             {filteredProducts.length > 0 ? (<ProductList products={sortedProducts} /> ) : ( <p>No products found.</p> )}
-        </>
+        </main>
     );
 }
 export default Products;

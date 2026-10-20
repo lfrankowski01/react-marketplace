@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 
 function ProductList({ products }) {
     return (
-        <div>
+        <div className="products-grid">
             {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
             ))}

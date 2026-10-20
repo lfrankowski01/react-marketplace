@@ -41,24 +41,24 @@ function ProductDetails() {
 
     return (
         <>
-        <Link to="/">Back Home</Link>
+            <Link to="/products" className="back-to-products">Back to Products</Link>
 
-        {loading && <h1>Loading Product...</h1>} 
-        
-        {error && <h1>{error}</h1>}
+            {loading && <h1>Loading Product...</h1>} 
+            
+            {error && <h1>{error}</h1>}
 
-        {product && (
-            <div>
-            <img src={product.image} alt={product.title} />
-            <div>
-                <h1>{product.title}</h1>
-                <p>{product.price}</p>
-                <p>{product.description}</p>
-                <p>{product.category}</p>
-                <button onClick={addToCart}>Add to Cart</button>
-            </div>
-        </div>
-        )}
+            {product && (
+                <div className="product-details">
+                <div className="product-details-img"><img src={product.image} alt={product.title} /></div>
+                    <div className="product-details-info">
+                        <h1>{product.title}</h1>
+                        <p className="product-details-price">£{product.price}</p>
+                        <p className="product-description">{product.description}</p>
+                        <p className="product-category">{product.category}</p>
+                        <button className="add-to-cart-btn" onClick={addToCart}>Add to Cart</button>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

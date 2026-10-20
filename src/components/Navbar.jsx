@@ -10,11 +10,14 @@ function Navbar() {
     }, 0);
 
     return (
-        <div>
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
-            <Link to="/cart">Your Cart ({cartCount})</Link>
-        </div>
+        <nav className="navbar">
+            <Link to="/" className="navbar-brand">Marketplace</Link>
+                <div className="navbar-links">
+                    <Link to="/">Home</Link>
+                    <Link to="/products">Products</Link>
+                </div>
+            <Link to="/cart" className="navbar-cart">Your Cart ({cartCount})</Link>
+        </nav>
     );
 }
 export default Navbar;
